@@ -8,7 +8,9 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v3.8.5">
-    <title>Yakoubi bilal</title>
+    <title>{{ blog_detail.title }}</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
 
     <!-- Bootstrap core CSS -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -42,7 +44,7 @@
     <div class="navbar-nav ml-auto">
       <a class="nav-item nav-link" href="https://github.com/billieShadow">gitHub</a>
       <a class="nav-item nav-link" href="{% static 'Resume.pdf' %}">Resume</a>
-      <a class="nav-item nav-link" href="{% url 'all_blogs' %}">Blog</a>
+      <a class="nav-item nav-link active" href="{% url 'all_blogs' %}">Blog</a>
     </div>
   </div>
 </nav>
@@ -50,36 +52,15 @@
 
 <main role="main">
 
-  <section class="jumbotron text-center">
-    <div class="container">
-      <h1 class="jumbotron-heading">Hi, I'm Bilal.</h1>
-      <p class="lead text-muted">Hey, my name is yakoubi bilal and i love create wibesite with django is it a python framework and it is super easy to code with it since it is created with python.</p>
-      <p>
-        <a href="gmail.com" class="btn btn-primary my-2">Email ME</a>
-      </p>
-      <img src="{% static 'bilal.jpg' %}" height="300" />
-    </div>
-  </section>
-
-  <div class="album py-5 bg-light">
-    <div class="container">
-
-      <div class="row">
-
-        {% for job in jobs.all %}
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-            <img class="img-fluid" src="{{ job.image.url }}"/>
-            <div class="card-body">
-              <p class="card-text">{{ job.summary }}</p>
-            </div>
-          </div>
-        </div>
-        {% endfor %}
-
-      </div>
-    </div>
+  <div class="container">
+    <h1 class="text-center pt-3">{{ blog_detail.title }}</h1>
+      <p class="text-center">{{ blog_detail.pub_date }}</p>
+      <img class="img-fluid" src="{{ blog_detail.image.url }}"/>
+      <br />
+      <br />
+      <p>{{ blog_detail.body }}</p>
   </div>
+
 
 </main>
 
